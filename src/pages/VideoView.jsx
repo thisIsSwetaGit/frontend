@@ -1,26 +1,26 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-
 function VideoView() {
-  const { id } = useParams();
-
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-2">Video {id}</h1>
-      <video controls className="w-full rounded-xl mb-4">
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-      </video>
-      <div className="bg-gray-100 p-4 rounded-xl">
-        <h2 className="font-semibold mb-2">Live Chat</h2>
-        <div className="h-40 overflow-y-scroll bg-white p-2 rounded mb-2">
-          <p>User1: Hello!</p>
-          <p>User2: Nice video 🔥</p>
-        </div>
-        <input
-          className="border w-full p-2 rounded"
-          type="text"
-          placeholder="Type your message..."
-        />
+    <div className="min-h-screen bg-gray-100 px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6 text-center md:text-left">
+        Welcome to SmartHireAI Dashboard
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[1, 2, 3].map((id) => (
+          <div key={id} className="bg-white p-4 rounded-lg shadow-md">
+            <video controls className="w-full h-48 rounded mb-2">
+              <source
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <h2 className="text-lg font-semibold mb-1">Candidate {id}</h2>
+            <p className="text-sm text-gray-600">
+              Interview Simulation Result: <span className="italic">Pending</span>
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

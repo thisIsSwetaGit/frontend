@@ -1,28 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-function Home() {
+export default function Home() {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Videos</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {[1, 2, 3].map((id) => (
-          <Link
-            to={`/video/${id}`}
-            key={id}
-            className="border rounded-xl shadow hover:shadow-lg p-4"
-          >
-            <img
-              src={`https://placehold.co/400x200?text=Video+${id}`}
-              alt={`Video ${id}`}
-              className="mb-2 rounded"
-            />
-            <h2 className="text-lg font-semibold">Video Title {id}</h2>
-          </Link>
-        ))}
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      <h1 className="text-4xl font-bold mb-6 text-blue-700">Welcome to VideoHub 🎥</h1>
+      <p className="text-lg mb-8">Your AI-powered YouTube clone with chat integration.</p>
+      <div className="flex gap-6">
+        <Link to="/login">
+          <button className="px-6 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700">Login</button>
+        </Link>
+        <Link to="/register">
+          <button className="px-6 py-2 bg-green-600 text-white rounded-xl shadow hover:bg-green-700">Register</button>
+        </Link>
       </div>
     </div>
   );
 }
-
-export default Home;
